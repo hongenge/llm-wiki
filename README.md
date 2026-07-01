@@ -2,7 +2,7 @@
 
 > 一个基于 LLM 协作维护的 Obsidian 知识编译系统，用于把原始信息持续编译为可复用、可追溯、可重构的知识资产。
 
-> **跨工具支持**：本项目基于 [AGENTS.md](https://agents.md) 标准，兼容 Codex / Claude Code / Cursor / Gemini CLI 等主流 AI 编程工具。工作流定义在 `skills/` 目录，任何支持 AGENTS.md 的工具均可直接发现并执行。
+> **跨工具支持**：本项目基于 AGENTS.md 标准，兼容 Codex / Claude Code / Cursor / Gemini CLI 等主流 AI 编程工具。工作流定义在 `skills/` 目录，任何支持 AGENTS.md 的工具均可直接发现并执行。
 
 ---
 
