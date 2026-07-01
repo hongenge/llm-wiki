@@ -2,6 +2,8 @@
 
 > 一个基于 LLM 协作维护的 Obsidian 知识编译系统，用于把原始信息持续编译为可复用、可追溯、可重构的知识资产。
 
+> **运行环境**：本项目为 **[opencode](https://opencode.ai)** 设计，核心工作流通过 opencode 的 `/wiki-*` slash 命令驱动。建议在 opencode 中使用以获得完整体验；其他 LLM 客户端可手动参照 `.opencode/command/` 下的流程文件执行。
+
 ---
 
 # 一、项目定位
@@ -18,6 +20,8 @@
 - 让知识库随着使用不断压缩、连接与升维
 
 > 规范唯一来源：[`AGENTS.md`](AGENTS.md)。README 只说明项目用途、目录和使用方式；所有强制规则以 `AGENTS.md` 为准。
+
+> **工具链**：opencode（slash 命令）+ Obsidian（知识库可视化与编辑）。两者缺一不可：opencode 负责 `raw → wiki → output` 的编译执行，Obsidian 负责 wikilink 图谱与日常浏览。
 
 ---
 
@@ -175,8 +179,7 @@ raw/papers/example-paper.pdf
 
 - 基础目录骨架
 - Agent 行为规范
-- ingest / refactor 流程 prompt
-- opencode 专属 slash 命令：`/wiki-compile` `/wiki-refactor` `/wiki-output` `/wiki-check`
+- 四个自包含 slash 命令：`/wiki-compile` `/wiki-refactor` `/wiki-output` `/wiki-check`（位于 `.opencode/command/`）
 - wiki 索引入口
 - lifecycle 操作日志
 
