@@ -74,6 +74,17 @@ LLM-WIKI/
 raw → wiki → output
 ```
 
+> **命令适用范围**：本节的 `/wiki-*` 命令是 **opencode 专属的 slash command**（自定义命令），通过 `.opencode/command/` 下的命令文件提供。如果你使用其他 LLM 客户端或 Obsidian 原生环境，无法直接调用这些命令，但可手动按对应 `skills/` 下的 prompt 流程执行。
+
+## 命令速查表
+
+| 命令 | 对应流程 | 作用 | 来源文件 |
+|---|---|---|---|
+| `/wiki-compile` | ingest | 扫描 `raw/`，将新增/更新的素材编译为 wiki 知识 | `.opencode/command/wiki-compile.md` |
+| `/wiki-refactor [范围/要求]` | refactor | 合并重复、提升抽象层级、构建 systems/comparisons | `.opencode/command/wiki-refactor.md` |
+| `/wiki-output <类型>` | output | 从 wiki 生成 posts / reports / tutorials / slides / newsletters | `.opencode/command/wiki-output.md` |
+| `/wiki-check [范围]` | quality check | 检查 wiki 质量并生成报告 | `.opencode/command/wiki-check.md` |
+
 ## 1. 收集素材
 
 把未处理材料放入 `raw/inbox/` 或对应分类目录。
@@ -109,7 +120,7 @@ raw/papers/example-paper.pdf
 在 opencode 中直接输入：
 
 ```text
-/wiki-update
+/wiki-refactor
 ```
 
 或在任意 LLM 对话中按 [`skills/reasoning/refactor-prompt.md`](skills/reasoning/refactor-prompt.md) 整理 wiki。
@@ -158,7 +169,7 @@ raw/papers/example-paper.pdf
 2. 输入 `/wiki-compile`（自动发现新文件）
 3. 检查 `wiki/summaries/`、`wiki/concepts/`、`wiki/entities/`
 4. 检查 `wiki/index.md` 和 `wiki/lifecycle/ingest-registry.md`
-5. 定期输入 `/wiki-update` 保持知识结构健康
+5. 定期输入 `/wiki-refactor` 保持知识结构健康
 6. 需要输出时，输入 `/wiki-output posts`
 7. 定期输入 `/wiki-check` 做质量体检
 
@@ -171,7 +182,7 @@ raw/papers/example-paper.pdf
 - 基础目录骨架
 - Agent 行为规范
 - ingest / refactor 流程 prompt
-- opencode 命令：`/wiki-compile` `/wiki-update` `/wiki-output` `/wiki-check`（`.opencode/command/`）
+- opencode 专属 slash 命令：`/wiki-compile` `/wiki-refactor` `/wiki-output` `/wiki-check`
 - wiki 索引入口
 - lifecycle 操作日志
 

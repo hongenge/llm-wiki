@@ -365,7 +365,7 @@ skills 是“能力定义”，不是知识库
 > 项目提供 opencode slash command，位于 `.opencode/`：
 >
 > * `.opencode/command/wiki-compile.md` — `/wiki-compile` 命令，用户直接触发
-> * `.opencode/command/wiki-update.md` — `/wiki-update` 命令，用户直接触发
+> * `.opencode/command/wiki-refactor.md` — `/wiki-refactor` 命令，用户直接触发
 > * `.opencode/command/wiki-output.md` — `/wiki-output <类型>` 命令，用户直接触发
 > * `.opencode/command/wiki-check.md` — `/wiki-check` 命令，用户直接触发
 >
