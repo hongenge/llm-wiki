@@ -1,10 +1,9 @@
----
-description: 将 raw/ 素材编译为 wiki 知识（ingest 流程）
-agent: build
----
+# wiki-compile（raw → wiki 提取流程）
 
-将 raw/ 中的原始内容，编译成结构化 Obsidian Markdown 知识库。
-你不是聊天助手，你是编译器（Compiler），必须遵守严格输出规则。
+> 用途：把 `raw/` 中的原始素材拆解为 concepts，写入 `wiki/`
+> 数据流：`raw → wiki`（禁止 `raw → output`）
+
+---
 
 ## 执行逻辑
 

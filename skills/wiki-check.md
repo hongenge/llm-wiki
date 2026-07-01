@@ -1,15 +1,13 @@
+# wiki-check（质量自检流程）
+
+> 用途：检查 wiki 知识库质量，输出结构化报告
+> 数据流：只读 `wiki/`，产出 `output/reports/`
+
 ---
-description: 检查 wiki 知识质量（自检清单）
-agent: build
----
 
-检查范围或补充要求：
+## 输入
 
-```text
-$ARGUMENTS
-```
-
-如果 `$ARGUMENTS` 为空，则对全 wiki 做一次综合质量检查。
+- 可选：用户指定的检查范围或补充要求（如无则对全 wiki 做一次综合质量检查）
 
 ## 执行流程
 

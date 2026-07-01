@@ -11,7 +11,8 @@
 ```text
 LLM-WIKI/
 ├── AGENTS.md
-├── .opencode/   # opencode 原生集成（command）
+├── CLAUDE.md    # Claude Code 入口（指向 AGENTS.md）
+├── skills/      # 跨工具工作流（可移植 Markdown）
 ├── raw/        # 原始素材（只读）
 ├── wiki/       # 知识编译层（LLM读写）
 ├── output/     # 成品输出（LLM生成 + 人类审阅）
@@ -24,6 +25,7 @@ LLM-WIKI/
 | 层级     | 路径        | 所有者      | 权限    | 说明     |
 | ------ | --------- | -------- | ----- | ------ |
 | Schema | AGENTS.md | 人类 + LLM | LLM只读 | 行为规则   |
+| Skills | skills/   | 人类       | LLM只读 | 跨工具工作流 |
 | Raw    | raw/      | 人类       | LLM只读 | 原始信息源  |
 | Wiki   | wiki/     | LLM      | 读写    | 知识核心层  |
 | Output | output/   | LLM + 人类 | 读写    | 对外表达结果 |
@@ -336,16 +338,20 @@ output 是“表达层”，必须：
 
 ---
 
-# 七、opencode 命令集成
+# 七、工作流技能（跨工具）
 
-项目提供 opencode slash command，位于 `.opencode/command/`：
+`skills/` 目录存放四个可移植工作流文件，均为纯 Markdown，不含任何工具私有语法：
 
-* `.opencode/command/wiki-compile.md` — `/wiki-compile` 命令，用户直接触发
-* `.opencode/command/wiki-refactor.md` — `/wiki-refactor` 命令，用户直接触发
-* `.opencode/command/wiki-output.md` — `/wiki-output <类型>` 命令，用户直接触发
-* `.opencode/command/wiki-check.md` — `/wiki-check` 命令，用户直接触发
+* `skills/wiki-compile.md` — raw → wiki 提取流程（ingest）
+* `skills/wiki-refactor.md` — 知识复利与重构流程（refactor）
+* `skills/wiki-output.md` — wiki → output 生成流程（output）
+* `skills/wiki-check.md` — 质量自检流程（quality check）
 
-每个 command 文件为自包含的权威流程源，包含完整的执行步骤、产出规则与页面结构模板。
+每个 skill 文件为自包含的权威流程源，包含完整的执行步骤、产出规则与页面结构模板。
+
+## 跨工具使用方式
+
+任何支持 `AGENTS.md` 的工具（Codex / opencode / Cursor / Gemini CLI / GitHub Copilot 等）均可直接发现并执行上述 skill。Claude Code 通过 `CLAUDE.md` 入口指向本文件。
 
 > 知识图谱可视化由 Obsidian 内置 Graph View 提供，无需独立配置。
 

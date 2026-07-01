@@ -1,20 +1,14 @@
+# wiki-output（wiki → output 生成流程）
+
+> 用途：从 wiki 知识生成面向人类的成品输出
+> 数据流：`wiki → output`（禁止 `raw → output`）
+
 ---
-description: 从 wiki 生成成品输出（文章/报告/教程/幻灯片/简报）
-agent: build
----
 
-输出类型与补充要求：
+## 输入
 
-```text
-$ARGUMENTS
-```
-
-如果 `$ARGUMENTS` 没有指定输出类型，先询问用户需要哪种形式：
-- `posts` 文章
-- `reports` 报告
-- `tutorials` 教程
-- `slides` 幻灯片
-- `newsletters` 简报
+- 输出类型：用户指定 `posts` / `reports` / `tutorials` / `slides` / `newsletters` 之一
+- 如未指定类型，先询问用户需要哪种形式
 
 ## 执行流程
 
