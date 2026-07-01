@@ -50,11 +50,6 @@ LLM-WIKI/
 │   ├── tutorials/
 │   ├── slides/
 │   └── newsletters/
-├── skills/                   # LLM 能力模块（规则 / 流程）
-│   ├── ingest/
-│   │   └── ingest-prompt.md  # raw → wiki 提取流程
-│   └── reasoning/
-│       └── refactor-prompt.md # 知识复利与重构流程
 └── README.md
 ```
 
@@ -63,7 +58,6 @@ LLM-WIKI/
 | `raw/` | 原始素材输入层 |
 | `wiki/` | 唯一知识真相层 |
 | `output/` | 面向人类的表达层 |
-| `skills/` | LLM 工作流提示词 |
 | `AGENTS.md` | 系统行为规范 |
 
 ---
@@ -74,7 +68,7 @@ LLM-WIKI/
 raw → wiki → output
 ```
 
-> **命令适用范围**：本节的 `/wiki-*` 命令是 **opencode 专属的 slash command**（自定义命令），通过 `.opencode/command/` 下的命令文件提供。如果你使用其他 LLM 客户端或 Obsidian 原生环境，无法直接调用这些命令，但可手动按对应 `skills/` 下的 prompt 流程执行。
+> **命令适用范围**：本节的 `/wiki-*` 命令是 **opencode 专属的 slash command**（自定义命令），通过 `.opencode/command/` 下的命令文件提供。如果你使用其他 LLM 客户端或 Obsidian 原生环境，无法直接调用这些命令，但可手动按 `.opencode/command/` 下对应命令文件中的流程执行。
 
 ## 命令速查表
 
@@ -123,7 +117,7 @@ raw/papers/example-paper.pdf
 /wiki-refactor
 ```
 
-或在任意 LLM 对话中按 [`skills/reasoning/refactor-prompt.md`](skills/reasoning/refactor-prompt.md) 整理 wiki。
+或在任意 LLM 对话中按 [`.opencode/command/wiki-refactor.md`](.opencode/command/wiki-refactor.md) 整理 wiki。
 
 典型操作：
 

@@ -15,7 +15,6 @@ LLM-WIKI/
 ├── raw/        # 原始素材（只读）
 ├── wiki/       # 知识编译层（LLM读写）
 ├── output/     # 成品输出（LLM生成 + 人类审阅）
-├── skills/     # LLM能力模块（规则/流程）
 ```
 
 ---
@@ -28,7 +27,6 @@ LLM-WIKI/
 | Raw    | raw/      | 人类       | LLM只读 | 原始信息源  |
 | Wiki   | wiki/     | LLM      | 读写    | 知识核心层  |
 | Output | output/   | LLM + 人类 | 读写    | 对外表达结果 |
-| Skills | skills/   | 人类       | LLM只读 | 工作流规则  |
 
 ---
 
@@ -338,38 +336,18 @@ output 是“表达层”，必须：
 
 ---
 
-# 七、skills 模块规则
+# 七、opencode 命令集成
 
-skills 是“能力定义”，不是知识库
+项目提供 opencode slash command，位于 `.opencode/command/`：
 
-## ingest/
+* `.opencode/command/wiki-compile.md` — `/wiki-compile` 命令，用户直接触发
+* `.opencode/command/wiki-refactor.md` — `/wiki-refactor` 命令，用户直接触发
+* `.opencode/command/wiki-output.md` — `/wiki-output <类型>` 命令，用户直接触发
+* `.opencode/command/wiki-check.md` — `/wiki-check` 命令，用户直接触发
 
-负责：
+每个 command 文件为自包含的权威流程源，包含完整的执行步骤、产出规则与页面结构模板。
 
-* raw → wiki
-* 信息拆解
-* concept 提取
-
-## reasoning/
-
-负责：
-
-* concept 合并
-* system 构建
-* 知识抽象
-
-> 知识图谱可视化由 Obsidian 内置 Graph View 提供，不单独设 skill。
->
-> ## opencode 集成
->
-> 项目提供 opencode slash command，位于 `.opencode/`：
->
-> * `.opencode/command/wiki-compile.md` — `/wiki-compile` 命令，用户直接触发
-> * `.opencode/command/wiki-refactor.md` — `/wiki-refactor` 命令，用户直接触发
-> * `.opencode/command/wiki-output.md` — `/wiki-output <类型>` 命令，用户直接触发
-> * `.opencode/command/wiki-check.md` — `/wiki-check` 命令，用户直接触发
->
-> opencode command 的权威流程源仍为 `skills/` 下的 prompt 文件。两者不一致时以 `skills/` 为准。
+> 知识图谱可视化由 Obsidian 内置 Graph View 提供，无需独立配置。
 
 ---
 
@@ -408,13 +386,3 @@ wiki/lifecycle/operation-log.md
 # 十、最终原则（一句话）
 
 > LLM Wiki 的本质不是“记录知识”，而是持续重构知识结构，使其不断压缩、连接与升维。
-
----
-
-如果你下一步要升级，我可以帮你做一个更关键的东西：
-
-> 👉 二件套（已落地，直接可用）：
-> - **ingest prompt**：[`skills/ingest/ingest-prompt.md`](skills/ingest/ingest-prompt.md) — raw → wiki 提取流程
-> - **refactor prompt**：[`skills/reasoning/refactor-prompt.md`](skills/reasoning/refactor-prompt.md) — 知识复利与重构流程
->
-> 知识图谱可视化由 Obsidian 内置 Graph View 提供，无需独立 prompt。
